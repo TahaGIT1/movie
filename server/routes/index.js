@@ -1,0 +1,24 @@
+import { Router } from 'express';
+import { asyncHandler } from '../utils/asyncHandler.js';
+import { protect, adminOnly } from '../middleware/auth.js';
+import * as auth from '../controllers/authController.js';
+import * as catalog from '../controllers/catalogController.js';
+import * as booking from '../controllers/bookingController.js';
+import * as payment from '../controllers/paymentController.js';
+import * as coupon from '../controllers/couponController.js';
+import * as admin from '../controllers/adminController.js';
+
+const router = Router();
+const route = (fn) => asyncHandler(fn);
+router.post('/auth/register', route(auth.register)); router.post('/auth/login', route(auth.login)); router.get('/auth/me', protect, route(auth.me));
+router.get('/movies', route(catalog.listMovies)); router.get('/movies/:id', route(catalog.getMovie));
+router.post('/movies', protect, adminOnly, route(catalog.saveMovie)); router.put('/movies/:id', protect, adminOnly, route(catalog.saveMovie)); router.delete('/movies/:id', protect, adminOnly, route(catalog.deleteMovie));
+router.get('/theatres', route(catalog.listTheatres)); router.get('/theatres/:id', route(catalog.getTheatre));
+router.post('/theatres', protect, adminOnly, route(catalog.saveTheatre)); router.put('/theatres/:id', protect, adminOnly, route(catalog.saveTheatre)); router.delete('/theatres/:id', protect, adminOnly, route(catalog.deleteTheatre));
+router.get('/theatres/:theatreId/screens', route(catalog.listScreens)); router.get('/screens', protect, adminOnly, route(catalog.listScreens)); router.post('/screens', protect, adminOnly, route(catalog.saveScreen)); router.put('/screens/:id', protect, adminOnly, route(catalog.saveScreen)); router.delete('/screens/:id', protect, adminOnly, route(catalog.deleteScreen));
+router.get('/shows', route(catalog.listShows)); router.get('/shows/:id', route(catalog.getShow)); router.post('/shows', protect, adminOnly, route(catalog.saveShow)); router.put('/shows/:id', protect, adminOnly, route(catalog.saveShow)); router.delete('/shows/:id', protect, adminOnly, route(catalog.deleteShow));
+router.get('/shows/:id/seats', route(booking.getSeatMap)); router.post('/bookings/lock', protect, route(booking.lockSeats)); router.post('/bookings', protect, route(booking.createBooking)); router.get('/bookings/my', protect, route(booking.myBookings)); router.get('/bookings/:id/ticket', protect, route(booking.getTicket)); router.get('/bookings/:id', protect, route(booking.getBooking)); router.post('/bookings/:id/cancel', protect, route(booking.cancelBooking));
+router.post('/payment/create-order', protect, route(payment.createOrder)); router.post('/payment/verify', protect, route(payment.verifyPayment)); router.post('/payment/failure', protect, route(payment.failPayment));
+router.post('/coupons/validate', protect, route(coupon.validateCoupon)); router.post('/coupons', protect, adminOnly, route(coupon.saveCoupon)); router.put('/coupons/:id', protect, adminOnly, route(coupon.saveCoupon)); router.delete('/coupons/:id', protect, adminOnly, route(coupon.deleteCoupon));
+router.get('/admin/dashboard', protect, adminOnly, route(admin.dashboard)); router.get('/admin/users', protect, adminOnly, route(admin.users)); router.get('/admin/bookings', protect, adminOnly, route(admin.bookings)); router.post('/admin/verify-ticket', protect, adminOnly, route(booking.verifyTicket));
+export default router;

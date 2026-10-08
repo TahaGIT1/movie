@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#091c2a"/><stop offset=".55" stop-color="#126c72"/><stop offset="1" stop-color="#0b0c12"/></linearGradient><radialGradient id="r"><stop stop-color="#79f2c0" stop-opacity=".4"/><stop offset="1" stop-color="#79f2c0" stop-opacity="0"/></radialGradient></defs>
+  <rect width="600" height="900" fill="url(#g)"/><circle cx="300" cy="395" r="290" fill="url(#r)"/>
+  <circle cx="300" cy="390" r="112" fill="none" stroke="#d8fff2" stroke-width="8" opacity=".8"/><path d="M280 325v130l110-65z" fill="#d8fff2"/>
+  <text x="300" y="610" fill="#fff" font-family="Arial,sans-serif" font-size="32" font-weight="700" text-anchor="middle" letter-spacing="4">OPEN MOVIES</text>
+  <text x="300" y="662" fill="#9df2d4" font-family="Arial,sans-serif" font-size="18" text-anchor="middle" letter-spacing="3">WATCH IN THE PLAYER</text>
+  <text x="300" y="810" fill="#c1d6d2" font-family="Arial,sans-serif" font-size="16" text-anchor="middle" letter-spacing="3">BOOKMYMOVIE STREAMS</text>
+</svg>

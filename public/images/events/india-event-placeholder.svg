@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17121f"/><stop offset=".55" stop-color="#3f225b"/><stop offset="1" stop-color="#090a11"/></linearGradient><radialGradient id="r"><stop stop-color="#f5a623" stop-opacity=".28"/><stop offset="1" stop-color="#f5a623" stop-opacity="0"/></radialGradient></defs>
+  <rect width="600" height="900" fill="url(#g)"/><circle cx="300" cy="390" r="300" fill="url(#r)"/>
+  <path d="M145 430c90-168 220-168 310 0M190 485c60-110 160-110 220 0" fill="none" stroke="#f5a623" stroke-width="14" stroke-linecap="round" opacity=".85"/><circle cx="300" cy="530" r="16" fill="#fff"/>
+  <text x="300" y="650" fill="#fff" font-family="Arial,sans-serif" font-size="35" font-weight="700" text-anchor="middle" letter-spacing="5">LIVE IN INDIA</text>
+  <text x="300" y="705" fill="#f5a623" font-family="Arial,sans-serif" font-size="19" text-anchor="middle" letter-spacing="4">BOOKMYMOVIE EVENTS</text>
+</svg>
